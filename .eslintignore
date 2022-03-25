@@ -1,0 +1,4 @@
+*.css
+*.svg
+tailwind.config.js
+vite.config.ts
