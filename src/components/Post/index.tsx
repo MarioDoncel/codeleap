@@ -15,7 +15,6 @@ interface IPostProps {
 const Post: React.FC<IPostProps> = ({ post, user }) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
-  console.log(formatDateToPost(post.created_datetime));
   return (
     <>
       <Container>

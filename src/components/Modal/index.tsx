@@ -21,6 +21,7 @@ const Modal: React.FC<IModalProps> = ({
   post,
 }) => {
   const handleDeletePost = () => {
+    setDeleteModal(false);
     console.log(`Delete :${post.id}`);
   };
 

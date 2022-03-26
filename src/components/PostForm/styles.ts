@@ -26,6 +26,7 @@ gap-2
 `;
 const InputSubmit = tw.input`
 button-primary
+${({ disabled }) => (disabled ? 'bg-gray-500 text-gray-200' : '')}
 `;
 
 export { Container, Form, InputContainer, InputSubmit, Title };
