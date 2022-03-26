@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { IPost, IUser } from '../../interfaces/User';
+import { formatDateToPost } from '../../utils/formatDate';
 import Header from '../Header';
 import Modal from '../Modal';
 
@@ -14,6 +15,7 @@ interface IPostProps {
 const Post: React.FC<IPostProps> = ({ post, user }) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
+  console.log(formatDateToPost(post.created_datetime));
   return (
     <>
       <Container>
@@ -27,7 +29,9 @@ const Post: React.FC<IPostProps> = ({ post, user }) => {
         <Content>
           <Info>
             <span>{`@${post.username}`}</span>
-            <span className="text-center">{post.created_datetime}</span>
+            <span className="text-center">
+              {formatDateToPost(post.created_datetime)}
+            </span>
           </Info>
           <Text>{post.content}</Text>
         </Content>

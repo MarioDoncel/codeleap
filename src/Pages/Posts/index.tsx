@@ -11,7 +11,7 @@ import { Container, Presentation, Main } from './styles';
 const Posts: React.FC = () => {
   const [clearPresentation, setClearPresentation] = useState(false);
   const { user } = useAppSelector((state) => state.user, shallowEqual);
-  console.log(user);
+  // console.log(user);
   useEffect(() => {
     setTimeout(() => setClearPresentation(true), 3000);
   }, []);
