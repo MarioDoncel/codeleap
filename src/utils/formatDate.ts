@@ -9,10 +9,16 @@ export const formatDateToPost = (stringDate: string) => {
   const elapsedDays = Math.floor(elapsedTime / 1000 / 60 / 60 / 24);
   const elapsedMonths = Math.floor(elapsedTime / 1000 / 60 / 60 / 24 / 30);
   const elapsedYears = Math.floor(elapsedTime / 1000 / 60 / 60 / 24 / 30 / 12);
-  if (elapsedYears) return `${elapsedYears} years ago`;
-  if (elapsedMonths) return `${elapsedMonths} months ago`;
-  if (elapsedDays) return `${elapsedDays} days ago`;
-  if (elapsedHours) return `${elapsedHours} hours ago`;
-  if (elapsedMinutes) return `${elapsedMinutes} minutes ago`;
-  return `${elapsedSeconds} minutes ago`;
+  const isPlural = (number: number) => {
+    if (number > 1) return 's';
+    return '';
+  };
+  if (elapsedYears) return `${elapsedYears} year${isPlural(elapsedYears)} ago`;
+  if (elapsedMonths)
+    return `${elapsedMonths} month${isPlural(elapsedMonths)} ago`;
+  if (elapsedDays) return `${elapsedDays} day${isPlural(elapsedDays)} ago`;
+  if (elapsedHours) return `${elapsedHours} hour${isPlural(elapsedHours)} ago`;
+  if (elapsedMinutes)
+    return `${elapsedMinutes} minute${isPlural(elapsedMinutes)} ago`;
+  return `${elapsedSeconds} second${isPlural(elapsedSeconds)} ago`;
 };

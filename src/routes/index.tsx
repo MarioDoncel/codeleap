@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Posts from '../Pages/Posts';
-import SignIn from '../Pages/SignIn';
+import SignUp from '../Pages/SignUp';
 import { PrivateRoute } from './PrivateRoute';
 
 export const Router = (): React.ReactElement => (
@@ -10,15 +10,15 @@ export const Router = (): React.ReactElement => (
       <Route
         path="/"
         element={
-          // <PrivateRoute>
-          <Posts />
-          // </PrivateRoute>
+          <PrivateRoute>
+            <Posts />
+          </PrivateRoute>
         }
       >
         <Route path="/" element={<Navigate to="/posts" />} />
         <Route path="/posts" element={<Posts />} />
       </Route>
-      <Route path="/signin" element={<SignIn />} />
+      <Route path="/signup" element={<SignUp />} />
     </Routes>
   </BrowserRouter>
 );

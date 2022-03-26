@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { EConstant } from '../Enums/constants';
 import { IUser } from '../interfaces/User';
 
 interface IUserInitialState {
@@ -6,12 +7,12 @@ interface IUserInitialState {
 }
 
 const localStorageUser: IUser = JSON.parse(
-  localStorage.getItem('codeleap::user') as string
+  localStorage.getItem(EConstant.localStorageName) as string
 );
 
 const initialState: IUserInitialState = {
   user: {
-    name: localStorageUser?.name || 'Someone Else',
+    name: localStorageUser?.name,
   },
 };
 
@@ -20,11 +21,14 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     logUser: (state, action: PayloadAction<IUser>) => {
-      localStorage.setItem('codeleap::user', JSON.stringify(action.payload));
+      localStorage.setItem(
+        EConstant.localStorageName,
+        JSON.stringify(action.payload)
+      );
       return { user: { ...state.user, ...action.payload } };
     },
     logout: () => {
-      localStorage.removeItem('codeleap::user');
+      localStorage.removeItem(EConstant.localStorageName);
       return initialState;
     },
   },

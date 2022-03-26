@@ -1,13 +1,10 @@
 import { useEffect } from 'react';
 import { Location } from 'react-router';
+import { EConstant } from '../Enums/constants';
 import { popError } from '../utils/popError';
 import { popSuccess } from '../utils/popSuccess';
 
 type TState = { status: string; message: string };
-export enum EStateStatus {
-  success = 'Success',
-  error = 'Error',
-}
 
 export const useLocationToastify = (location: Location) => {
   useEffect(() => {
@@ -15,7 +12,7 @@ export const useLocationToastify = (location: Location) => {
       ? (location.state as TState)
       : { status: '', message: '' };
     if (!state.status) return;
-    if (state.status === EStateStatus.success) popSuccess(state.message);
-    if (state.status === EStateStatus.error) popError(state.message);
+    if (state.status === EConstant.statusSucces) popSuccess(state.message);
+    if (state.status === EConstant.statusError) popError(state.message);
   }, [location.state]);
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import { IPost, IUser } from '../../interfaces/User';
 import { formatDateToPost } from '../../utils/formatDate';
@@ -15,6 +15,11 @@ interface IPostProps {
 const Post: React.FC<IPostProps> = ({ post, user }) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
+
+  const memoizedCreatedAt = useMemo(
+    () => formatDateToPost(post.created_datetime),
+    [post.created_datetime]
+  );
   return (
     <>
       <Container>
@@ -28,9 +33,7 @@ const Post: React.FC<IPostProps> = ({ post, user }) => {
         <Content>
           <Info>
             <span>{`@${post.username}`}</span>
-            <span className="text-center">
-              {formatDateToPost(post.created_datetime)}
-            </span>
+            <span className="text-center">{memoizedCreatedAt}</span>
           </Info>
           <Text>{post.content}</Text>
         </Content>
