@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { shallowEqual } from 'react-redux';
 import CreatePostForm from '../../components/CreatePostForm';
 import Header from '../../components/Header';
+import Modal from '../../components/Modal';
 import Post from '../../components/Post';
 import { useAppSelector } from '../../hooks/redux.hooks';
 import { POSTS } from '../../Mock/posts';
@@ -29,6 +30,7 @@ const Posts: React.FC = () => {
           </Main>
         </Container>
       )}
+      <Modal />
     </>
   );
 };
