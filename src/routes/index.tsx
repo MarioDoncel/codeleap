@@ -10,9 +10,9 @@ export const Router = (): React.ReactElement => (
       <Route
         path="/"
         element={
-          <PrivateRoute>
-            <Posts />
-          </PrivateRoute>
+          // <PrivateRoute>
+          <Posts />
+          // </PrivateRoute>
         }
       >
         <Route path="/" element={<Navigate to="/posts" />} />

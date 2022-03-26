@@ -12,7 +12,18 @@ module.exports = {
       xl: '1280px',
       xxl: '1536px'
     },
-    extend: {},
+    extend: {
+      keyframes: {
+        presentation: {
+          '0%': { opacity: '0' },
+          '50%': { opacity: '.8' },
+          '100%': { opacity: '0', display: 'none' },
+        }
+      },
+      animation: {
+        presentation: 'presentation 3s ease-out forwards'
+      }
+    },
   },
   plugins: [require('tailwindcss'), require('autoprefixer')],
 };

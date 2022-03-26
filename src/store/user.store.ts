@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IUser } from '../interfaces/User';
 
 interface IUserInitialState {
-  user: Partial<IUser>;
+  user: IUser;
 }
 
 const localStorageUser: IUser = JSON.parse(
@@ -11,7 +11,7 @@ const localStorageUser: IUser = JSON.parse(
 
 const initialState: IUserInitialState = {
   user: {
-    name: localStorageUser.name || '',
+    name: localStorageUser?.name || 'Someone Else',
   },
 };
 
