@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { shallowEqual } from 'react-redux';
-import CreatePostForm from '../../components/CreatePostForm';
+import CreatePostForm from '../../components/PostForm';
 import Header from '../../components/Header';
-import Modal from '../../components/Modal';
 import Post from '../../components/Post';
 import { useAppSelector } from '../../hooks/redux.hooks';
 import { POSTS } from '../../Mock/posts';
@@ -23,14 +22,13 @@ const Posts: React.FC = () => {
         <Container>
           <Header>Codeleap Network</Header>
           <Main>
-            <CreatePostForm />
+            <CreatePostForm title={`What's on your mind?`} action="CREATE" />
             {POSTS.map((post) => (
               <Post key={post.id} post={post} user={user} />
             ))}
           </Main>
         </Container>
       )}
-      <Modal />
     </>
   );
 };

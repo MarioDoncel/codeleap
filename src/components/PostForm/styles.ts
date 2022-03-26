@@ -1,14 +1,18 @@
 import tw from 'tailwind-styled-components';
 
-const Container = tw.div`
+type TContainer = { $post: boolean };
+
+const Container = tw.div<TContainer>`
 border-[1px] 
 border-gray-600 
 px-7 
 py-6
+${({ $post }) => ($post ? 'p-0 border-none' : '')}
 `;
 const Title = tw.h2`
 text-2xl 
 font-bold
+mb-8
 `;
 const Form = tw.form`
 flex 
@@ -20,19 +24,8 @@ flex
 flex-col 
 gap-2 
 `;
-const styleTextFields = `
-border-gray-500 
-border-[1px] 
-px-2 
-py-1 
-rounded-md
-`;
 const InputSubmit = tw.input`
-py-2 
-px-7 
-text-white 
-bg-gray-900
-cursor-pointer
+button-primary
 `;
 
-export { Container, Form, InputContainer, InputSubmit, Title, styleTextFields };
+export { Container, Form, InputContainer, InputSubmit, Title };
