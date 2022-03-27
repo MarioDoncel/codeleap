@@ -64,7 +64,7 @@ The project was buil with ReacJS and Typescript.
 
 * [Typescript](https://www.typescriptlang.org/)
 * [ReactJS](https://pt-br.reactjs.org/)
-* React Router
+* React RouterV6
 * React Icons
 * Redux-Toolkit
 * Axios
