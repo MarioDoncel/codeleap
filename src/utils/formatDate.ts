@@ -1,8 +1,7 @@
 export const formatDateToPost = (stringDate: string) => {
   const now = Date.now();
   const postDate = new Date(stringDate);
-  const timezoneOffsetInMiliseconds = postDate.getTimezoneOffset() * 1000 * 60;
-  const elapsedTime = now - postDate.getTime() - timezoneOffsetInMiliseconds;
+  const elapsedTime = now - postDate.getTime();
   const elapsedSeconds = Math.floor(elapsedTime / 1000);
   const elapsedMinutes = Math.floor(elapsedTime / 1000 / 60);
   const elapsedHours = Math.floor(elapsedTime / 1000 / 60 / 60);
